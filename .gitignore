@@ -21,3 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+*.bat
+*.bin
+*.lock
+*.xml
+*.iml
+*.properties
+Numeric Matrix Processor/.idea/.name
+*.gradle
+Numeric Matrix Processor/gradlew
