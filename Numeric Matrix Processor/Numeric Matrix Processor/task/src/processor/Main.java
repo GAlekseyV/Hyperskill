@@ -12,27 +12,25 @@ public class Main {
     public static void main(String[] args) {
         Main Processor = new Main();
         int[][] matrixA = Processor.readMatrix();
-        int[][] matrixB = Processor.readMatrix();
+        int C = Processor.readInt();
 
-        if(matrixA.length != matrixB.length
-                || matrixA[0].length != matrixB[0].length){
-            System.out.println("ERROR");
-            return;
-        }
+        int[][] result = Processor.mul(matrixA, C);
 
-        int[][] sum = Processor.add(matrixA, matrixB);
+        Processor.printMatrix(result);
+    }
 
-        Processor.printMatrix(sum);
+    private  int readInt(){
+        return scanner.nextInt();
     }
 
     private  int[][] readMatrix(){
-        int rows = scanner.nextInt();
-        int columns = scanner.nextInt();
+        int rows = readInt();
+        int columns = readInt();
 
         int[][] matrix = new int[rows][columns];
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
-                matrix[i][j] = scanner.nextInt();
+                matrix[i][j] = readInt();
             }
         }
         return matrix;
@@ -46,6 +44,16 @@ public class Main {
             }
         }
         return sum;
+    }
+
+    private int[][] mul(int[][] matrix, int c){
+        int[][] result = new int[matrix.length][matrix[0].length];
+        for(int i = 0; i < result.length; i++){
+            for(int j = 0; j < result[0].length; j++){
+                result[i][j] = matrix[i][j] * c;
+            }
+        }
+        return result;
     }
 
     private void printMatrix(int[][] matrix){
