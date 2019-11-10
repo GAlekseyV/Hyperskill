@@ -6,12 +6,12 @@ class SelectionContext {
 
     private PersonSelectionAlgorithm algorithm;
 
-    public void setAlgorithm(PersonSelectionAlgorithm algorithm) {
+    void setAlgorithm(PersonSelectionAlgorithm algorithm) {
         // write your code here
         this.algorithm = algorithm;
     }
 
-    public Person[] selectPersons(Person[] persons) {
+    Person[] selectPersons(Person[] persons) {
         // write your code here
         return algorithm.select(persons);
     }
@@ -26,7 +26,7 @@ class TakePersonsWithStepAlgorithm implements PersonSelectionAlgorithm {
 
     private int step;
 
-    public TakePersonsWithStepAlgorithm(int step) {
+    TakePersonsWithStepAlgorithm(int step) {
         // write your code here
         this.step = step;
     }
@@ -50,7 +50,7 @@ class TakeLastPersonsAlgorithm implements PersonSelectionAlgorithm {
 
     private int count;
 
-    public TakeLastPersonsAlgorithm(int count) {
+    TakeLastPersonsAlgorithm(int count) {
         // write your code here
         this.count = count;
     }
@@ -71,7 +71,7 @@ class Person {
 
     String name;
 
-    public Person(String name) {
+    Person(String name) {
         this.name = name;
     }
 }
@@ -80,7 +80,7 @@ class Person {
 /* Do not change code below */
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
 
         final int count = Integer.parseInt(scanner.nextLine());
@@ -102,7 +102,7 @@ public class Main {
         }
     }
 
-    public static PersonSelectionAlgorithm create(String algType, int param) {
+    private static PersonSelectionAlgorithm create(String algType, int param) {
         switch (algType) {
             case "STEP": {
                 return new TakePersonsWithStepAlgorithm(param);
